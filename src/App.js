@@ -699,11 +699,11 @@ const {nftdata} = this.state
           <div class="card" style={{marginTop:"3px",boxShadow:"1px 1px 4px #000000"}}>
 
           <input type="number" name="amount" defaultValue="1" min="1" max="20"/>
-          <label style={{color:"#000000"}}>Please select the amount of NFTs to mint.(0.001 eth each)</label>
+          <label style={{color:"#000000"}}>Please select the amount of NFTs to mint.(0.005 eth each)</label>
           <Button onClick={mint}>MINT</Button>
           <h2> NFTS Minted so far= {balance.result} /10,000</h2>
           </div>
-        <label style={{color:"#ffffff"}}>Price .001 ETH each mint.</label>
+        <label style={{color:"#ffffff"}}>Price .005 ETH each mint.</label>
       </form>
       <div className="row items mt-3">
       <div className="ml-3 mr-3" style={{display: "inline-grid",gridTemplateColumns: "repeat(4, 5fr)",columnGap: "10px"}}>
