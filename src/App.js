@@ -703,7 +703,7 @@ const {nftdata} = this.state
           <Button onClick={mint}>MINT</Button>
           <h2> NFTS Minted so far= {balance.result} /10,000</h2>
           </div>
-        <label style={{color:"#ffffff"}}>Price .005 ETH each mint.</label>
+        <label style={{color:"#ffffff"}}>Price .001 ETH each mint.</label>
       </form>
       <div className="row items mt-3">
       <div className="ml-3 mr-3" style={{display: "inline-grid",gridTemplateColumns: "repeat(4, 5fr)",columnGap: "10px"}}>
