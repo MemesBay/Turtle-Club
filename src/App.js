@@ -5,6 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Web3 from 'web3';
 import axios from 'axios';
 import React, { Component } from 'react';
+import Web3Modal from "web3modal";
+import WalletConnectProvider from "@walletconnect/web3-provider";
+import WalletLink from "walletlink";
 
 const ABI = [
 	{
@@ -634,23 +637,50 @@ const ADDRESS = "0x972b859685D4f5706632C36A98bdb796001072E7";
 const endpoint = "https://api.etherscan.io/api";
 const nftpng = "https://gateway.pinata.cloud/ipfs/QmWGBMo1uuKxypThVQwbfnYo2fHfVBCAWoGcKBQUyHR4BS/";
 
+const providerOptions = {
+	binancechainwallet: {
+		package: true
+	  },
+	walletconnect: {
+		package: WalletConnectProvider,
+		options: {
+		  infuraId: "4fa6543ce1734c0eb8fccfd6c8d845fb"
+		}
+	  },
+	  walletlink: {
+		package: WalletLink, 
+		options: {
+		  appName: "turtle people yatch club", 
+		  infuraId: "4fa6543ce1734c0eb8fccfd6c8d845fb", 
+		  rpc: "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161", 
+		  chainId: 1, 
+		  appLogoUrl: null, 
+		  darkMode: true 
+		}
+	  },
+};
+
+const web3Modal = new Web3Modal({
+  network: "mainnet",
+  theme: "dark",
+  cacheProvider: true,
+  providerOptions 
+});
+
 async function connectwallet() { 
-  if (window.ethereum) { 
-  var web3 = new Web3(window.ethereum); 
+  var provider = await web3Modal.connect();
+  var web3 = new Web3(provider); 
   await window.ethereum.send('eth_requestAccounts'); 
   var accounts = await web3.eth.getAccounts(); 
   account = accounts[0]; 
   document.getElementById('wallet-address').textContent = account; 
   contract = new web3.eth.Contract(ABI, ADDRESS);
-  }
 }
-async function mint() {
-  if (window.ethereum) { 
+async function mint() { 
     var _mintAmount = Number(document.querySelector("[name=amount]").value); 
     var mintRate = Number(await contract.methods.cost().call()); 
     var totalAmount = mintRate * _mintAmount; 
   contract.methods.mint(account, _mintAmount).send({ from: account, value: String(totalAmount) }); 
-  }
 } 
 
 class App extends Component {
