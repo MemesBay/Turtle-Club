@@ -652,7 +652,7 @@ const providerOptions = {
 		options: {
 		  appName: "turtle people yatch club", 
 		  infuraId: "4fa6543ce1734c0eb8fccfd6c8d845fb", 
-		  rpc: "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161", 
+		  rpc: "https://mainnet.infura.io/v3/4fa6543ce1734c0eb8fccfd6c8d845fb", 
 		  chainId: 1, 
 		  appLogoUrl: null, 
 		  darkMode: true 
