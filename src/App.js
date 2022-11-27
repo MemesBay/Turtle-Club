@@ -1110,7 +1110,7 @@ await axios.get((endpoint + `?module=stats&action=tokensupply&contractaddress=${
         console.log(outputa.data)
     })
 
-await axios.get((endpoint + `?module=account&action=tokennfttx&contractaddress=${NFTCONTRACTnp}&page=1&offset=100&tag=latest&apikey=${apikey}`))
+await axios.get((endpoint + `?module=account&action=tokennfttx&contractaddress=${NFTCONTRACT}&page=1&offset=100&tag=latest&apikey=${apikey}`))
 .then(outputb => {
   const { result } = outputb.data
         this.setState({
