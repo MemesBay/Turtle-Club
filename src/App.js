@@ -1146,7 +1146,7 @@ async function unstakeit() {
  <div className='container'>
 <div className='row'>
   <form class="gradient col-lg-5 mt-5" style={{borderRadius:"25px",boxShadow:"1px 1px 15px #000000", marginRight:"5px"}}>
-    <h4 style={{color:"#FFFFFF"}}>Turtle People Yatch CLub Mint Portal</h4>
+    <h4 style={{color:"#FFFFFF"}}>Turtle People Yatch Club Mint Portal</h4>
     <h5 style={{color:"#FFFFFF"}}>Please connect your wallet</h5>
     
     <div class="card" id='wallet-address' style={{marginTop:"3px",boxShadow:"1px 1px 4px #000000"}}>
