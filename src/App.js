@@ -1198,7 +1198,7 @@ const {nftdata} = this.state
 		  async function unstakeit() {
 		vaultcontract.methods.unstake([assets.token_id]).send({from: account});
 		  }
-		  
+
 	  return (
 			<div className="card">
             		<div className="image-over">
@@ -1206,7 +1206,7 @@ const {nftdata} = this.state
 					</div>
 					<div className="card-caption col-12 p-0">
                     	<div className="card-body">
-							<h5 className="mb-0">Turtle People Yatch CLub #1{result.tokenID}</h5>
+							<h5 className="mb-0">Turtle CLub #1{result.tokenID}</h5>
               <h5 className="mb-0 mt-2">Owner Wallet:<p style={{color:"#39FF14",fontWeight:"bold",textShadow:"1px 1px 2px #000000"}}>{result.to}</p></h5>
                     	<div className="card-bottom d-flex justify-content-between">
 							<Button className="btn btn-bordered-white btn-smaller mt-3">
