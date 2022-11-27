@@ -1151,7 +1151,7 @@ const {nftdata} = this.state
       <div class="card" style={{marginTop:"3px",boxShadow:"1px 1px 4px #000000"}}>
       <input type="number" name="stkid"/>
       <label >Input NFT ID</label>
-      <Button onClick = {stakeit}>STAKE</Button>
+      <Button onClick = {stakeit}>ACTAVITED AT 5,000 MINTS</Button>
 	  <Button onClick = {unstakeit}>UNSTAKE</Button>
           
           </div>
