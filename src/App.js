@@ -1102,7 +1102,7 @@ this.state = {
 
 async componentDidMount() {
 
-await axios.get((endpoint + `?module=stats&action=tokensupply&contractaddress=${ADDRESS}&apikey=${apikey}`))
+await axios.get((endpoint + `?module=stats&action=tokensupply&contractaddress=${NFTCONTRACT}&apikey=${apikey}`))
 .then(outputa => {
         this.setState({
             balance:outputa.data
