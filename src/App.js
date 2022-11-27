@@ -1030,7 +1030,7 @@ var vaultcontract = null;
 const apikey = "DDRDSA7U9VHDDCQGJBZ218MYWRS21NYDS4";
 const NFTCONTRACT = "0x972b859685D4f5706632C36A98bdb796001072E7";
 const STAKINGCONTRACT = "0x0f928F5154358Ff4E921445790A64f0eACB382e5"
-const endpoint = "https://api.etherscan.io/api"
+const endpoint = "https://api.etherscan.io/api";
 const nftpng = "https://gateway.pinata.cloud/ipfs/QmWGBMo1uuKxypThVQwbfnYo2fHfVBCAWoGcKBQUyHR4BS/";
 
 const providerOptions = {
