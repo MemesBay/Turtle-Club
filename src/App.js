@@ -1144,16 +1144,15 @@ const {nftdata} = this.state
         <label style={{color:"#ffffff"}}>Price .005 ETH each mint.</label>
       </form>
 
-	  <form class= "gradient col-lg5 mt=5" style={{borderRadius:"25px",boxShadow:"1px 1px 15px #00d370"}}>
-        <h4 style={{color:"#ffffff"}}> Staking Vault </h4>
-        <h5 style={{color:"#ffffff"}}>Please connect your wallet</h5>
-        <Button onClick={connectwallet} style={{marginBottom:"5px"}}>Connect Wallet</Button>
-          <div class="card" style={{marginTop:"3px",boxShadow:"1px 1px 4px #000000"}}>
-
-          <input type="number" name="stkid"/>
-          <label style={{color:"#000000"}}>Input NFT ID Then hit Stake button.</label>
-          <Button onClick={stakeit}>STAKE</Button>
-		  <Button onClick={unstakeit}>UNSTAKE</Button>
+	  <form class="gradient col-lg-5 mt-5" style={{borderRadius:"25px",boxShadow:"1px 1px 15px #000000", marginRight:"5px"}}>
+    <h4 style={{color:"#FFFFFF"}}>Staking Vault</h4>
+    <h5 style={{color:"#FFFFFF"}}>Please connect your wallet</h5>
+    <Button onClick={connectwallet} style={{marginBottom:"5px",color:"#FFFFFF"}}>Connect Wallet</Button>
+      <div class="card" style={{marginTop:"3px",boxShadow:"1px 1px 4px #000000"}}>
+      <input type="number" name="stkid"/>
+      <label >Input NFT ID</label>
+      <Button onClick={stakeit}>STAKE</Button>
+	  <Button onClick={unstakeit}>UNSTAKE</Button>
           
           </div>
         
