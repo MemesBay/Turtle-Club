@@ -1151,7 +1151,7 @@ const {nftdata} = this.state
           <div class="card" style={{marginTop:"3px",boxShadow:"1px 1px 4px #000000"}}>
 
           <input type="number" name="stkid"/>
-          <label style={{color:"#000000"}}>input NFT ID.(0.005 eth each)</label>
+          <label style={{color:"#000000"}}>Input NFT ID Then hit Stake button.</label>
           <Button onClick={stakeit}>STAKE</Button>
 		  <Button onClick={unstakeit}>UNSTAKE</Button>
           
