@@ -1091,6 +1091,16 @@ async function unstakeit() {
 	vaultcontract.methods.unstake([tokenids]).send({from: account});
 }
 
+async function claimit() {
+	var tokenids = Number(document.querySelector("[name=claimid]").value);
+	vaultcontract.methods.claim([tokenids]).send({from: account});
+}
+
+async function verify() {
+	var getbalance = Number(await vaultcontract.methods.balanceOf(account).call());
+	document.getElementById('stakedbalance').textContent = getbalance; 
+}
+
 class App extends Component {
 constructor() {
 super();
@@ -1125,12 +1135,12 @@ const {balance} = this.state;
 const {nftdata} = this.state
   return (
     <div className="App">
+		<Button onClick={connectwallet} style={{marginBottom:"5px", marginTop:"5px"}}>Connect Wallet</Button>
  <div className='container'>
 <div className='row'>
       <form class= "gradient col-lg5 mt=5" style={{borderRadius:"25px",boxShadow:"1px 1px 15px #00d370"}}>
         <h4 style={{color:"#ffffff"}}> Turtle People Yatch Club </h4>
         <h5 style={{color:"#ffffff"}}>Please connect your wallet</h5>
-        <Button onClick={connectwallet} style={{marginBottom:"5px"}}>Connect Wallet</Button>
         <div class="card" id='wallet-address' style={{marginTop:"3px",boxShadow:"1px 1px 4px #000000"}}>
           <label style={{color:"#000000"}} for="floatingInput">Wallet Address</label>
           </div>
@@ -1144,10 +1154,9 @@ const {nftdata} = this.state
         <label style={{color:"#ffffff"}}>Price .005 ETH each mint.</label>
       </form>
 
-	  <form class="gradient col-lg-5 mt-5" style={{borderRadius:"25px",boxShadow:"1px 1px 15px #000000", marginRight:"5px"}}>
+	  <form class="gradient col-lg-3 mt-5" style={{borderRadius:"25px",boxShadow:"1px 1px 15px #000000", marginRight:"5px"}}>
     <h4 style={{color:"#FFFFFF"}}>Staking Vault</h4>
     <h5 style={{color:"#FFFFFF"}}>Please connect your wallet</h5>
-    <Button onClick = {connectwallet} style={{marginBottom:"5px",color:"#FFFFFF"}}>Connect Wallet</Button>
       <div class="card" style={{marginTop:"3px",boxShadow:"1px 1px 4px #000000"}}>
       <input type="number" name="stkid"/>
       <label >Input NFT ID</label>
@@ -1157,6 +1166,20 @@ const {nftdata} = this.state
           </div>
         
       </form>
+
+	  <form class="gradient col-lg-3 mt-5" style={{borderRadius:"25px",boxShadow:"1px 1px 15px #000000", marginRight:"5px"}}>
+    <h4 style={{color:"#FFFFFF"}}>NFT Vault Options</h4>
+	<h5 style={{color:"#FFFFFF"}}>Verify Amount Staked</h5>
+	<Button onClick={verify}>Verify</Button>
+	<div class="card" id='stakedbalance' style={{marginTop:"3px",boxShadow:"1px 1px 4px #000000"}}>
+      <label for="floatingInput">NFT Balance</label>
+      </div>
+      <div class="card" style={{marginTop:"3px",boxShadow:"1px 1px 4px #000000"}}>
+      <input type="number" name="claimid"/>
+      <label >Input NFT ID</label>
+	  <Button onClick={claimit}>Claim Rewards</Button>
+      </div>
+  </form>
 
       <div className="row items mt-3">
       <div className="ml-3 mr-3" style={{display: "inline-grid",gridTemplateColumns: "repeat(4, 5fr)",columnGap: "10px"}}>
