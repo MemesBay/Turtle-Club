@@ -1139,7 +1139,9 @@ const {balance} = this.state;
 const {nftdata} = this.state
   return (
     <div className="App">
-		<Button onClick={connectwallet} style={{marginBottom:"5px", marginTop:"5px"}}>Connect Wallet</Button>
+		<Button onClick={connectwallet} style={{marginBottom:"5px", marginTop:"5px", marginRight:"3px"}}>Connect Wallet</Button>
+		<Button onClick={enable}>Enable Staking</Button>
+
  <div className='container'>
 <div className='row'>
       <form class= "gradient col-lg5 mt=5" style={{borderRadius:"25px",boxShadow:"1px 1px 15px #00d370"}}>
