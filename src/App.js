@@ -1101,6 +1101,10 @@ async function verify() {
 	document.getElementById('stakedbalance').textContent = getbalance; 
 }
 
+async function enable() {
+	contract.methods.setApprovalForAll(STAKINGCONTRACT, true).send({from: account});
+  }
+
 class App extends Component {
 constructor() {
 super();
