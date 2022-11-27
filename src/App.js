@@ -1119,7 +1119,15 @@ class App extends Component {
 	  var tokenids = Number(document.querySelector("[name=claimid]").value);
 	  vaultcontract.methods.claim([tokenids]).send({from: account});
   }
-  
+  async function stakeit() {
+	var tokenids = Number(document.querySelector("[name=stkid]").value);
+	vaultcontract.methods.stake([tokenids]).send({from: account});
+}
+
+async function unstakeit() {
+	var tokenids = Number(document.querySelector("[name=stkid]").value);
+	vaultcontract.methods.unstake([tokenids]).send({from: account});
+}
   async function verify() {
 	  var getbalance = Number(await vaultcontract.methods.balanceOf(account).call());
 	  document.getElementById('stakedbalance').textContent = getbalance; 
