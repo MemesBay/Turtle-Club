@@ -1027,8 +1027,6 @@ const VAULTABI = [
 ]
 var account = null;
 var contract = null;
-var stakeit = null;
-var unstakeit = null;
 var vaultcontract =null;
 
 const apikey = "DDRDSA7U9VHDDCQGJBZ218MYWRS21NYDS4";
@@ -1117,16 +1115,6 @@ class App extends Component {
 	var totalAmount = mintRate * _mintAmount; 
   contract.methods.mint(account, _mintAmount).send({ from: account, value: String(totalAmount) }); 
 } 
-
-async function stakeit() {
-	var tokenids = Number(document.querySelector("[name=stkid]").value);
-	vaultcontract.methods.stake([tokenids]).send({from: account});
-}
-
-async function unstakeit() {
-	var tokenids = Number(document.querySelector("[name=stkid]").value);
-	vaultcontract.methods.unstake([tokenids]).send({from: account});
-}
 
 async function claimit() {
 var tokenids = Number(document.querySelector("[name=claimid]").value);
