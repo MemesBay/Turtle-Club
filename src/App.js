@@ -1027,7 +1027,8 @@ const VAULTABI = [
 ]
 var account = null;
 var contract = null;
-var vaultcontract = null;
+var stakeit = null;
+var unstakeit = null;
 
 
 const apikey = "DDRDSA7U9VHDDCQGJBZ218MYWRS21NYDS4";
