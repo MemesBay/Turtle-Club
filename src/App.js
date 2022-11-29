@@ -1115,16 +1115,6 @@ class App extends Component {
   contract.methods.mint(account, _mintAmount).send({ from: account, value: String(totalAmount) }); 
 } 
 
-async function stakeit() {
-var tokenids = Number(document.querySelector("[name=stkid]").value);
-vaultcontract.methods.stake([tokenids]).send({from: account});
-}
-
-async function unstakeit() {
-var tokenids = Number(document.querySelector("[name=stkid]").value);
-vaultcontract.methods.unstake([tokenids]).send({from: account});
-}
-
 async function claimit() {
 var tokenids = Number(document.querySelector("[name=claimid]").value);
 vaultcontract.methods.claim([tokenids]).send({from: account});
@@ -1146,7 +1136,7 @@ contract.methods.setApprovalForAll(STAKINGCONTRACT, true).send({from: account});
 	 <div className='container'>
 	<div className='row'>
 	  <form class="gradient col-lg-5 mt-5" style={{borderRadius:"25px",boxShadow:"1px 1px 15px #000000", marginRight:"5px"}}>
-		<h4 style={{color:"#FFFFFF"}}>Mint Portal</h4>
+		<h4 style={{color:"#FFFFFF"}}> Turtle Mint Portal</h4>
 		<h5 style={{color:"#FFFFFF"}}>Please connect your wallet</h5>
 		
 		<div class="card" id='wallet-address' style={{marginTop:"3px",boxShadow:"1px 1px 4px #000000"}}>
@@ -1155,10 +1145,10 @@ contract.methods.setApprovalForAll(STAKINGCONTRACT, true).send({from: account});
 		  <div class="card" style={{marginTop:"3px",boxShadow:"1px 1px 4px #000000"}}>
 		  <input type="number" name="amount" defaultValue="1" min="1" max="5"/>
 		  <label >Please select the amount of NFTs to mint.</label>
-		  <Button onClick={mint}>Buy/Mint!</Button>
+		  <Button onClick={mint}>Mint!</Button>
 		  </div>
-		<label style={{color:"#FFFFFF"}}>Price 0.05 ETH each mint.</label>
-		<h5 style={{color:"white", textShadow:"1px 1px 3px #000000"}}> Tokens Minted so far= {balance.result}/1000</h5>
+		<label style={{color:"#FFFFFF"}}>Price 0.005 ETH each mint.</label>
+		<h5 style={{color:"white", textShadow:"1px 1px 3px #000000"}}> Tokens Minted so far= {balance.result}/10000</h5>
 	  </form>
 	  <form class="gradient col-lg-3 mt-5 mr-3" style={{borderRadius:"25px",boxShadow:"1px 1px 15px #000000", marginRight:"5px"}}>
 		<h4 style={{color:"#FFFFFF"}}>Staking Vault</h4>
