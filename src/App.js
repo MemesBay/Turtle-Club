@@ -1029,7 +1029,7 @@ var account = null;
 var contract = null;
 var stakeit = null;
 var unstakeit = null;
-
+var vaultcontract =null;
 
 const apikey = "DDRDSA7U9VHDDCQGJBZ218MYWRS21NYDS4";
 const NFTCONTRACT = "0x972b859685D4f5706632C36A98bdb796001072E7";
