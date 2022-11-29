@@ -1116,6 +1116,7 @@ class App extends Component {
   contract.methods.mint(account, _mintAmount).send({ from: account, value: String(totalAmount) }); 
 } 
 
+
 async function claimit() {
 var tokenids = Number(document.querySelector("[name=claimid]").value);
 vaultcontract.methods.claim([tokenids]).send({from: account});
