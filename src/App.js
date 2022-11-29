@@ -1026,8 +1026,7 @@ const VAULTABI = [
 var account = null;
 var contract = null;
 var vaultcontract = null;
-var stakeit = null;
-var unstakeit = null;
+
 
 const apikey = "DDRDSA7U9VHDDCQGJBZ218MYWRS21NYDS4";
 const NFTCONTRACT = "0x972b859685D4f5706632C36A98bdb796001072E7";
@@ -1122,12 +1121,12 @@ class App extends Component {
 	  vaultcontract.methods.claim([tokenids]).send({from: account});
   }
 
-  async function stakeit() {
+  async function stakeid() {
 	var tokenids = Number(document.querySelector("[name=stkid]").value);
 	vaultcontract.methods.stake([tokenids]).send({from: account});
 }
 
-async function unstakeit() {
+async function unstakeid() {
 	var tokenids = Number(document.querySelector("[name=stkid]").value);
 	vaultcontract.methods.unstake([tokenids]).send({from: account});
 }
@@ -1181,10 +1180,10 @@ async function unstakeit() {
   <div className="row items mt-3">
   <div className="ml-3 mr-3" style={{display: "inline-grid",gridTemplateColumns: "repeat(4, 5fr)",columnGap: "10px"}}>
   {nftdata.map((assets, i )=> {
-	    	async function stakeit() {
+	    	async function stakeid() {
 			vaultcontract.methods.stake([assets.token_id]).send({from: account});
 		  	}
-		  	async function unstakeit() {
+		  	async function unstakeid() {
 			vaultcontract.methods.unstake([assets.token_id]).send({from: account});
 		  	}
 	  return (
