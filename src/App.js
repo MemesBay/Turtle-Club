@@ -629,6 +629,7 @@ const ABI = [
 	}
 ]
 const VAULTABI = [
+	[
 		{
 			"anonymous": false,
 			"inputs": [
@@ -1022,6 +1023,7 @@ const VAULTABI = [
 			"stateMutability": "view",
 			"type": "function"
 		}
+	]
 ]
 var account = null;
 var contract = null;
@@ -1033,7 +1035,7 @@ const NFTCONTRACT = "0x972b859685D4f5706632C36A98bdb796001072E7";
 const STAKINGCONTRACT = "0x0f928F5154358Ff4E921445790A64f0eACB382e5"
 const endpoint = "https://api.etherscan.io/api";
 const nftpng = "https://gateway.pinata.cloud/ipfs/QmWGBMo1uuKxypThVQwbfnYo2fHfVBCAWoGcKBQUyHR4BS/";
-
+const openseaapi = "https://opensea.io/assets/ethereum/0x972b859685d4f5706632c36a98bdb796001072e7/";
 const providerOptions = {
 	binancechainwallet: {
 		package: true
@@ -1084,13 +1086,11 @@ class App extends Component {
             console.log(outputa.data)
         })
 
-		
-
-		await axios.get((endpoint + `?module=account&action=tokennfttx&contractaddress=${NFTCONTRACT}&page=1&offset=100&tag=latest&apikey=${apikey}`))
+		await axios.get((openseaapi + `?asset_contract_addresses=${NFTCONTRACT}&format=json&order_direction=asc&offset=0&limit=20`))
 		.then(outputb => {
-			const { result } = outputb.data
+			const { assets } = outputb.data
             this.setState({
-                nftdata:result
+                nftdata:assets
             })
             console.log(outputb.data)
         })
@@ -1116,6 +1116,16 @@ class App extends Component {
 	var totalAmount = mintRate * _mintAmount; 
   contract.methods.mint(account, _mintAmount).send({ from: account, value: String(totalAmount) }); 
 } 
+
+async function stakeit() {
+	var tokenids = Number(document.querySelector("[name=stkid]").value);
+	vaultcontract.methods.stake([tokenids]).send({from: account});
+}
+
+async function unstakeit() {
+	var tokenids = Number(document.querySelector("[name=stkid]").value);
+	vaultcontract.methods.unstake([tokenids]).send({from: account});
+}
 
 async function claimit() {
 var tokenids = Number(document.querySelector("[name=claimid]").value);
