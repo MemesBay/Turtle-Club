@@ -1109,25 +1109,35 @@ class App extends Component {
 		vaultcontract = new web3.eth.Contract(VAULTABI, STAKINGCONTRACT);
   }
   async function mint() {
-		  var _mintAmount = Number(document.querySelector("[name=amount]").value); 
-		  var mintRate = Number(await contract.methods.cost().call()); 
-		  var totalAmount = mintRate * _mintAmount; 
-		contract.methods.mint(account, _mintAmount).send({ from: account, value: String(totalAmount) }); 
-	  } 
-  
-  async function claimit() {
-	  var tokenids = Number(document.querySelector("[name=claimid]").value);
-	  vaultcontract.methods.claim([tokenids]).send({from: account});
-  }
+	var _mintAmount = Number(document.querySelector("[name=amount]").value); 
+	var mintRate = Number(await contract.methods.cost().call()); 
+	var totalAmount = mintRate * _mintAmount; 
+  contract.methods.mint(account, _mintAmount).send({ from: account, value: String(totalAmount) }); 
+} 
 
-  async function verify() {
-	  var getbalance = Number(await vaultcontract.methods.balanceOf(account).call());
-	  document.getElementById('stakedbalance').textContent = getbalance; 
-  }
-  
-  async function enable() {
-	  contract.methods.setApprovalForAll(STAKINGCONTRACT, true).send({from: account});
-	}
+async function stakeit() {
+var tokenids = Number(document.querySelector("[name=stkid]").value);
+vaultcontract.methods.stake([tokenids]).send({from: account});
+}
+
+async function unstakeit() {
+var tokenids = Number(document.querySelector("[name=stkid]").value);
+vaultcontract.methods.unstake([tokenids]).send({from: account});
+}
+
+async function claimit() {
+var tokenids = Number(document.querySelector("[name=claimid]").value);
+vaultcontract.methods.claim([tokenids]).send({from: account});
+}
+
+async function verify() {
+var getbalance = Number(await vaultcontract.methods.balanceOf(account).call());
+document.getElementById('stakedbalance').textContent = getbalance; 
+}
+
+async function enable() {
+contract.methods.setApprovalForAll(STAKINGCONTRACT, true).send({from: account});
+}
 
 	return (
 		<div className="App" style={{background:'black'}}>
