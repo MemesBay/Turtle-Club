@@ -1084,11 +1084,13 @@ class App extends Component {
             console.log(outputa.data)
         })
 
-		await axios.get((openseaapi + `?asset_contract_addresses=${NFTCONTRACT}&format=json&order_direction=asc&offset=0&limit=20`))
+		
+
+		await axios.get((endpoint + `?module=account&action=tokennfttx&contractaddress=${NFTCONTRACT}&page=1&offset=100&tag=latest&apikey=${apikey}`))
 		.then(outputb => {
-			const { assets } = outputb.data
+			const { result } = outputb.data
             this.setState({
-                nftdata:assets
+                nftdata:result
             })
             console.log(outputb.data)
         })
