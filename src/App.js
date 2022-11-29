@@ -1033,7 +1033,7 @@ const NFTCONTRACT = "0x972b859685D4f5706632C36A98bdb796001072E7";
 const STAKINGCONTRACT = "0x0f928F5154358Ff4E921445790A64f0eACB382e5"
 const endpoint = "https://api.etherscan.io/api";
 const nftpng = "https://gateway.pinata.cloud/ipfs/QmWGBMo1uuKxypThVQwbfnYo2fHfVBCAWoGcKBQUyHR4BS/";
-const openseaapi = "https://api.opensea.io/api/v1/collection/turtle-people-yatch-club";
+const openseaapi = "https://opensea.io/assets/";
 
 const providerOptions = {
 	binancechainwallet: {
@@ -1121,15 +1121,6 @@ class App extends Component {
 	  vaultcontract.methods.claim([tokenids]).send({from: account});
   }
 
-  async function stakeid() {
-	var tokenids = Number(document.querySelector("[name=stkid]").value);
-	vaultcontract.methods.stake([tokenids]).send({from: account});
-}
-
-async function unstakeid() {
-	var tokenids = Number(document.querySelector("[name=stkid]").value);
-	vaultcontract.methods.unstake([tokenids]).send({from: account});
-}
   async function verify() {
 	  var getbalance = Number(await vaultcontract.methods.balanceOf(account).call());
 	  document.getElementById('stakedbalance').textContent = getbalance; 
@@ -1197,8 +1188,8 @@ async function unstakeid() {
 							<h5 className="mb-0 mt-2">Location Status<p style={{color:"#39FF14",fontWeight:"bold",textShadow:"1px 1px 2px #000000"}}>{assets.owner.address}</p></h5>
                     	<div className="card-bottom d-flex justify-content-between">
 						<input key={i} type="hidden" id='stakeid' value={assets.token_id} />
-							<Button className="mb-2 mt-3 col-5" style={{marginLeft:'2px'}} onClick={stakeit}>Stake it</Button>
-							<Button className="mb-2 mt-3 col-5" style={{marginLeft:'2px'}} onClick={unstakeit}>Unstake it</Button>
+							<Button className="mb-2 mt-3 col-5" style={{marginLeft:'2px'}} onClick={stakeid}>Stake it</Button>
+							<Button className="mb-2 mt-3 col-5" style={{marginLeft:'2px'}} onClick={unstakeid}>Unstake it</Button>
 							</div>
 					</div>
                 </div>
