@@ -1029,6 +1029,16 @@ var account = null;
 var contract = null;
 var vaultcontract =null;
 
+const options = {method: 'GET', headers: {Accept: 'application/json'}};
+
+fetch('https://api.opensea.io/api/v1/assets', options)
+  .then(response => response.json())
+  .then(function(response) {
+    console.log(response.assets)
+    return response
+  })
+.catch(err => console.error(err));
+
 const apikey = "DDRDSA7U9VHDDCQGJBZ218MYWRS21NYDS4";
 const NFTCONTRACT = "0x972b859685D4f5706632C36A98bdb796001072E7";
 const STAKINGCONTRACT = "0x0f928F5154358Ff4E921445790A64f0eACB382e5"
