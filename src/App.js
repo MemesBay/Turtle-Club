@@ -1034,7 +1034,7 @@ const NFTCONTRACT = "0x972b859685D4f5706632C36A98bdb796001072E7";
 const STAKINGCONTRACT = "0x0f928F5154358Ff4E921445790A64f0eACB382e5"
 const endpoint = "https://api.etherscan.io/api";
 const nftpng = "https://gateway.pinata.cloud/ipfs/QmWGBMo1uuKxypThVQwbfnYo2fHfVBCAWoGcKBQUyHR4BS/";
-const openseaapi = "https://opensea.io/https://storage.googleapis.com/opensea-static/opensea-profile//ethereum/0x972b859685d4f5706632c36a98bdb796001072e7/";
+const openseaapi = "https://opensea.io/assets/ethereum/0x972b859685d4f5706632c36a98bdb796001072e7/";
 const providerOptions = {
 	binancechainwallet: {
 		package: true
