@@ -1132,7 +1132,7 @@ contract.methods.setApprovalForAll(STAKINGCONTRACT, true).send({from: account});
 }
 
 	return (
-		<div className="App" style={{background:'black'}}>
+		<div className="App">
 			<Button onClick={connectwallet} style={{marginBottom:"5px",marginTop:"5px",color:"#FFFFFF", marginRight:'3px'}}>Connect Wallet</Button>
 			<Button onClick={enable}>Enable Staking</Button>
 	 <div className='container'>
