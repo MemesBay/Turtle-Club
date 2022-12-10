@@ -1044,7 +1044,8 @@ const NFTCONTRACT = "0x972b859685D4f5706632C36A98bdb796001072E7";
 const STAKINGCONTRACT = "0x0f928F5154358Ff4E921445790A64f0eACB382e5"
 const endpoint = "https://api.etherscan.io/api";
 const nftpng = "https://gateway.pinata.cloud/ipfs/QmWGBMo1uuKxypThVQwbfnYo2fHfVBCAWoGcKBQUyHR4BS/";
-const openseaapi = "https://api.opensea.io/api/v1/assets";
+const moralisapi = " https://deep-index.moralis.io/api/v2/";
+const moralisapikey = "7Zc6ssRhs1gBozKH8Rt53TAzg2HJvg8qQ5XJKIlIZYpL5F700EC5lnzCg0GIA4W4";
 const providerOptions = {
 	binancechainwallet: {
 		package: true
@@ -1095,11 +1096,11 @@ class App extends Component {
             console.log(outputa.data)
         })
 
-		await axios.get((openseaapi + `?asset_contract_addresses=${NFTCONTRACT}&format=json&order_direction=asc&offset=0&limit=20`))
+		await axios.get((moralisapi  + `nft/${NFTCONTRACT}/owners?chain=mainnet&format=decimal`)), {headers: config}
 		.then(outputb => {
-			const { assets } = outputb.data
+			const { results } = outputb.data
             this.setState({
-                nftdata:assets
+                nftdata:result
             })
             console.log(outputb.data)
         })
@@ -1180,24 +1181,24 @@ contract.methods.setApprovalForAll(STAKINGCONTRACT, true).send({from: account});
 	  </form>
 	  <div className="row items mt-3">
 	  <div className="ml-3 mr-3" style={{display: "inline-grid",gridTemplateColumns: "repeat(4, 5fr)",columnGap: "10px"}}>
-	  {nftdata.map((assets, i )=> {
+	  {nftdata.map((result, i )=> {
 				async function stakeit() {
-				vaultcontract.methods.stake([assets.token_id]).send({from: account});
+				vaultcontract.methods.stake([result.token_id]).send({from: account});
 				  }
 				  async function unstakeit() {
-				vaultcontract.methods.unstake([assets.token_id]).send({from: account});
+				vaultcontract.methods.unstake([result.token_id]).send({from: account});
 				  }
 		  return (
 				<div className="card mt-3" key={i} >
 						<div className="image-over">
-						<img className="card-img-top"  src={nftpng + assets.token_id +'.png'} alt="" />
+						<img className="card-img-top"  src={nftpng + result.token_id +'.png'} alt="" />
 						</div>
 						<div className="card-caption col-12 p-0">
 							<div className="card-body">
-								<h5 className="mb-0">Net2Dev Collection NFT #{assets.token_id}</h5>
-								<h5 className="mb-0 mt-2">Location Status<p style={{color:"#39FF14",fontWeight:"bold",textShadow:"1px 1px 2px #000000"}}>{assets.owner.address}</p></h5>
+								<h5 className="mb-0">Turtle NFT #{result.token_id}</h5>
+								<h5 className="mb-0 mt-2">Location Status<p style={{color:"#39FF14",fontWeight:"bold",textShadow:"1px 1px 2px #000000"}}>{result.owner_of}</p></h5>
 							<div className="card-bottom d-flex justify-content-between">
-							<input key={i} type="hidden" id='stakeid' value={assets.token_id} />
+							<input key={i} type="hidden" id='stakeid' value={result.token_id} />
 								<Button className="mb-2 mt-3 col-5" style={{marginLeft:'2px'}} onClick={stakeit}>Stake it</Button>
 								<Button className="mb-2 mt-3 col-5" style={{marginLeft:'2px'}} onClick={unstakeit}>Unstake it</Button>
 								</div>
