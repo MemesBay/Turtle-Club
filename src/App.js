@@ -1127,15 +1127,6 @@ class App extends Component {
 			contract.methods.mint(account, _mintAmount).send({ from: account, value: String(totalAmount) }); 
 		  } 
 	  
-	  async function stakeit() {
-		  var tokenids = Number(document.querySelector("[name=stkid]").value);
-		  vaultcontract.methods.stake([tokenids]).send({from: account});
-	  }
-	  
-	  async function unstakeit() {
-		  var tokenids = Number(document.querySelector("[name=stkid]").value);
-		  vaultcontract.methods.unstake([tokenids]).send({from: account});
-	  }
 	  
 	  async function claimit() {
 		  var tokenids = Number(document.querySelector("[name=stkid]").value);
