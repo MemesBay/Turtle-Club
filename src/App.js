@@ -1168,8 +1168,8 @@ class App extends Component {
 		  <label >Please select the amount of NFTs to mint.</label>
 		  <Button onClick={mint}>Buy/Mint!</Button>
 		  </div>
-		<label style={{color:"#FFFFFF"}}>Price 0.05 ETH each mint.</label>
-		<h5 style={{color:"white", textShadow:"1px 1px 3px #000000"}}> Tokens Minted so far= {balance.result}/1000</h5>
+		<label style={{color:"#FFFFFF"}}>Price 0.005 ETH each mint.</label>
+		<h5 style={{color:"white", textShadow:"1px 1px 3px #000000"}}> Tokens Minted so far= {balance.result}/10,000</h5>
 	  </form>
 	  <form class="gradient col-lg-3 mt-5 mr-3" style={{borderRadius:"25px",boxShadow:"1px 1px 15px #000000", marginRight:"5px"}}>
 		<h4 style={{color:"#FFFFFF"}}>Staking Vault</h4>
@@ -1181,7 +1181,7 @@ class App extends Component {
 	  </form>
 	  <form class="gradient col-lg-3 mt-5 mr-3" style={{borderRadius:"25px",boxShadow:"1px 1px 15px #000000", marginRight:"5px"}}>
 	  <h5 style={{color:"#FFFFFF"}}> Staking Rewards</h5>
-		<Button onClick={rewardinfo}>Earned N2D Rewards</Button>
+		<Button onClick={rewardinfo}>Earned $ Shell Rewards</Button>
 		<div id='earned' style={{color: "#39FF14",marginTop:"5px", fontSize:'25px',fontWeight:'bold',textShadow:"1px 1px 2px #000000"}}><p style={{fontSize:"20px"}}>Earned Tokens</p></div>
 		<input name="stkid" style={{color: "#39FF14",fontSize:'25px',fontWeight:'bold',textShadow:"1px 1px 2px #000000",width:'50px',backgroundColor:'#00000000'}}/>
 		<label className="col-4" style={{color:'white'}}>NFT ID</label>
@@ -1206,7 +1206,7 @@ class App extends Component {
 						</div>
 						<div className="card-caption col-12 p-0">
 							<div className="card-body">
-								<h5 className="mb-0">Net2Dev Collection NFT #{result.token_id}</h5>
+								<h5 className="mb-0">Turtle Collection NFT #{result.token_id}</h5>
 								<h5 className="mb-0 mt-2">Location Status<p style={{color:"#39FF14",fontWeight:"bold",textShadow:"1px 1px 2px #000000"}}>{result.owner_of}</p></h5>
 							<div className="card-bottom d-flex justify-content-between">
 							<input key={i} type="hidden" id='stakeid' value={result.token_id} />
