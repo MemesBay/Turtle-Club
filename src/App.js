@@ -1075,6 +1075,16 @@ class App extends Component {
 		  var getbalance = Number(await vaultcontract.methods.balanceOf(account).call());
 		  document.getElementById('stakedbalance').textContent = getbalance; 
 	  }
+
+	  async function stakeit() {
+		var tokenids = Number(document.querySelector("[name=stkid]").value);
+		vaultcontract.methods.stake([tokenids]).send({from: account});
+	}
+	
+	async function unstakeit() {
+		var tokenids = Number(document.querySelector("[name=stkid]").value);
+		vaultcontract.methods.unstake([tokenids]).send({from: account});
+	}
 	  
 	  async function enable() {
 		  contract.methods.setApprovalForAll(STAKINGCONTRACT, true).send({from: account});
