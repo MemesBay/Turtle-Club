@@ -1044,7 +1044,7 @@ const NFTCONTRACT = "0x972b859685D4f5706632C36A98bdb796001072E7";
 const STAKINGCONTRACT = "0x0f928F5154358Ff4E921445790A64f0eACB382e5"
 const endpoint = "https://api.etherscan.io/api";
 const nftpng = "https://gateway.pinata.cloud/ipfs/QmWGBMo1uuKxypThVQwbfnYo2fHfVBCAWoGcKBQUyHR4BS/";
-const moralisapi = " https://deep-index.moralis.io/api/v2/";
+const moralisapi = " https://deep-index.moralis.io/api/v2/nft/0x972b859685D4f5706632C36A98bdb796001072E7/metadata";
 const moralisapikey = "7Zc6ssRhs1gBozKH8Rt53TAzg2HJvg8qQ5XJKIlIZYpL5F700EC5lnzCg0GIA4W4";
 const providerOptions = {
 	binancechainwallet: {
@@ -1096,7 +1096,7 @@ class App extends Component {
             console.log(outputa.data)
         })
 		let config = {'X-API-Key': moralisapikey, 'accept': 'application/json'};
-		await axios.get((moralisapi + `/nft/${NFTCONTRACT}/owners?chain=mumbai&format=decimal`), {headers: config})
+		await axios.get((moralisapi + `/nft/${NFTCONTRACT}/owners?chain=eth&format=decimal`), {headers: config})
 		.then(outputb => {
 			const { result } = outputb.data
             this.setState({
