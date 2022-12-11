@@ -1096,7 +1096,7 @@ class App extends Component {
             console.log(outputa.data)
         })
 		let config = {'X-API-Key': moralisapikey, 'accept': 'application/json'};
-		await axios.get(( moralisapi  + `nft/${NFTCONTRACT}/owners?chain=eth&format=decimal`)), {headers: config}
+		await axios.get((moralisapi + `/nft/${NFTCONTRACT}/owners?chain=mumbai&format=decimal`), {headers: config})
 		.then(outputb => {
 			const { result } = outputb.data
             this.setState({
