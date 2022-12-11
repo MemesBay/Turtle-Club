@@ -985,7 +985,7 @@ const endpoint = "https://api.etherscan.io/api";
 const nftpng = "https://gateway.pinata.cloud/ipfs/QmWGBMo1uuKxypThVQwbfnYo2fHfVBCAWoGcKBQUyHR4BS/";
 const moralisapi = " https://deep-index.moralis.io/api/v2/";
 const moralisapikey = "7Zc6ssRhs1gBozKH8Rt53TAzg2HJvg8qQ5XJKIlIZYpL5F700EC5lnzCg0GIA4W4";
-const web3alc = createAlchemyWeb3("https://eth-mainnet.g.alchemy.com/v2/dLtaOpbhN_OCuNN40eZ5lMi-MM9jtgXb");
+const Web3Alc = createAlchemyWeb3("https://eth-mainnet.g.alchemy.com/v2/dLtaOpbhN_OCuNN40eZ5lMi-MM9jtgXb");
 
 const providerOptions = {
 	binancechainwallet: {
