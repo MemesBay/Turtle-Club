@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import WalletLink from "walletlink";
+import { createAlchemyWeb3 } from '@alch/alchemy-web3';
 
 const ABI = [
 	{
@@ -984,6 +985,8 @@ const endpoint = "https://api.etherscan.io/api";
 const nftpng = "https://gateway.pinata.cloud/ipfs/QmWGBMo1uuKxypThVQwbfnYo2fHfVBCAWoGcKBQUyHR4BS/";
 const moralisapi = " https://deep-index.moralis.io/api/v2/";
 const moralisapikey = "7Zc6ssRhs1gBozKH8Rt53TAzg2HJvg8qQ5XJKIlIZYpL5F700EC5lnzCg0GIA4W4";
+const web3alc = createAlchemyWeb3("https://eth-mainnet.g.alchemy.com/v2/dLtaOpbhN_OCuNN40eZ5lMi-MM9jtgXb");
+
 const providerOptions = {
 	binancechainwallet: {
 		package: true
@@ -1058,12 +1061,25 @@ class App extends Component {
 			contract = new web3.eth.Contract(ABI, NFTCONTRACT);
 			vaultcontract = new web3.eth.Contract(VAULTABI, STAKINGCONTRACT);
 	  }
+	 
 	  async function mint() {
-			  var _mintAmount = Number(document.querySelector("[name=amount]").value); 
-			  var mintRate = Number(await contract.methods.cost().call()); 
-			  var totalAmount = mintRate * _mintAmount; 
-			contract.methods.mint(account, _mintAmount).send({ from: account, value: String(totalAmount) }); 
-		  } 
+        var _mintAmount = Number(document.querySelector("[name=amount]").value); 
+        var mintRate = Number(await contract.methods.cost().call()); 
+        var totalAmount = mintRate * _mintAmount;
+        //STARTS BELOW:
+        await Web3Alc.eth.getMaxPriorityFeePerGas().then((tip) => { 
+          Web3Alc.eth.getBlock('pending').then((block) => {
+              var baseFee = Number(block.baseFeePerGas);
+              var maxPriority = Number(tip);
+              var maxFee = baseFee + maxPriority
+          contract.methods.mint(account, _mintAmount)
+              .send({ from: account,
+                value: String(totalAmount),
+                maxFeePerGas: maxFee,
+                maxPriorityFeePerGas: maxPriority});
+          });
+      })
+  }
 	  
 	  
 	  async function claimit() {
