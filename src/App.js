@@ -1172,7 +1172,7 @@ class App extends Component {
 		<h5 style={{color:"white", textShadow:"1px 1px 3px #000000"}}> Tokens Minted so far= {balance.result}/10,000</h5>
 	  </form>
 	  <form class="gradient col-lg-3 mt-5 mr-3" style={{borderRadius:"25px",boxShadow:"1px 1px 15px #000000", marginRight:"5px"}}>
-		<h4 style={{color:"#FFFFFF"}}>Staking Vault UNDERCONTRUCTION</h4>
+		<h4 style={{color:"#FFFFFF"}}>Staking Vault UNDERCONSTRUCTION</h4>
 		<h5 style={{color:"#FFFFFF"}}>Verify Amount Staked</h5>
 		<Button onClick={verify}>Verify</Button>
 		<div id='stakedbalance' style={{marginTop:"5px",color:"#39FF14",fontWeight:"bold",textShadow:"1px 1px 2px #000000", fontSize:"35px" }}>
